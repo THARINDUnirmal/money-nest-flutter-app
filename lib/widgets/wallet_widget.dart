@@ -38,7 +38,42 @@ class WalletWidget extends StatelessWidget {
             ],
           ),
           Spacer(),
-          SvgPicture.asset("assets/icons/ellipsis-vertical.svg"),
+
+          PopupMenuButton(
+            color: Colors.white,
+            itemBuilder: (context) {
+              return [
+                PopupMenuItem(
+                  value: "Delete",
+                  child: Row(
+                    children: [
+                      Text("Open"),
+                      Spacer(),
+                      SvgPicture.asset(
+                        "assets/icons/move-up.svg",
+                        color: Colors.greenAccent,
+                        width: 20,
+                      ),
+                    ],
+                  ),
+                ),
+                PopupMenuItem(
+                  value: "Delete",
+                  child: Row(
+                    children: [
+                      Text("Delete"),
+                      Spacer(),
+                      SvgPicture.asset(
+                        "assets/icons/trash-2.svg",
+                        color: Colors.redAccent,
+                        width: 20,
+                      ),
+                    ],
+                  ),
+                ),
+              ];
+            },
+          ),
         ],
       ),
     );

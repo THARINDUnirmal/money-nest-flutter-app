@@ -14,7 +14,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.all(AppConstatnts().appPadding),
+          padding: EdgeInsets.all(AppConstatnts.appPadding),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -185,6 +185,7 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
       ),
+
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {

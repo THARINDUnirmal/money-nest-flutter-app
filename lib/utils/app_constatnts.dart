@@ -1,3 +1,3 @@
 class AppConstatnts {
-  final double appPadding = 10;
+  static double appPadding = 10;
 }
