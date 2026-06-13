@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:lottie/lottie.dart';
 import 'package:new_ex_app/utils/app_constatnts.dart';
 
 class SingleWalletScreen extends StatelessWidget {
@@ -19,13 +20,14 @@ class SingleWalletScreen extends StatelessWidget {
                   value: "Help",
                   child: Row(
                     children: [
-                      Text("help"),
-                      Spacer(),
                       SvgPicture.asset(
                         "assets/icons/circle-question-mark.svg",
                         color: Colors.black54,
                         width: 20,
                       ),
+                      SizedBox(width: 10),
+
+                      Text("help"),
                     ],
                   ),
                 ),
@@ -33,27 +35,27 @@ class SingleWalletScreen extends StatelessWidget {
                   value: "Rename",
                   child: Row(
                     children: [
-                      Text("Rename"),
-                      Spacer(),
                       SvgPicture.asset(
                         "assets/icons/pen.svg",
                         color: Colors.black54,
                         width: 20,
                       ),
+                      SizedBox(width: 10),
+                      Text("Rename"),
                     ],
                   ),
                 ),
                 PopupMenuItem(
-                  value: "PDF Genarate",
+                  value: "PDF",
                   child: Row(
                     children: [
-                      Text("PDF"),
-                      Spacer(),
                       SvgPicture.asset(
                         "assets/icons/file-text.svg",
                         color: Colors.black54,
                         width: 20,
                       ),
+                      SizedBox(width: 10),
+                      Text("PDF"),
                     ],
                   ),
                 ),
@@ -62,17 +64,22 @@ class SingleWalletScreen extends StatelessWidget {
                   value: "Delete",
                   child: Row(
                     children: [
-                      Text("Delete"),
-                      Spacer(),
                       SvgPicture.asset(
                         "assets/icons/trash-2.svg",
                         color: Colors.redAccent,
                         width: 20,
                       ),
+                      SizedBox(width: 10),
+                      Text("Delete"),
                     ],
                   ),
                 ),
               ];
+            },
+            onSelected: (value) {
+              // if (value == "Delete") {
+              //   areYouSureMessage(context: context);
+              // }
             },
           ),
           SizedBox(width: 10),
@@ -177,4 +184,21 @@ class SingleWalletScreen extends StatelessWidget {
       ),
     );
   }
+
+  // void areYouSureMessage({required BuildContext context}) {
+  //   showDialog(
+  //     context: context,
+  //     builder: (context) {
+  //       return AlertDialog(
+  //         content: Container(
+  //           width: 300,
+  //           height: 300,
+  //           child: Column(
+  //             children: [Lottie.asset("assets/lotties/warning.json")],
+  //           ),
+  //         ),
+  //       );
+  //     },
+  //   );
+  // }
 }
