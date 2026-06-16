@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lottie/lottie.dart';
 import 'package:new_ex_app/utils/app_constatnts.dart';
+import 'package:new_ex_app/view/single_screens/add_data_screen.dart';
 
 class SingleWalletScreen extends StatelessWidget {
   const SingleWalletScreen({super.key});
@@ -128,27 +129,35 @@ class SingleWalletScreen extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(
-              width: 150,
-              height: 50,
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [
-                    const Color.fromARGB(169, 0, 136, 5),
-                    const Color.fromARGB(255, 0, 255, 8),
-                  ],
-                  begin: Alignment.centerLeft,
-                  end: Alignment.centerRight,
+            InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => AddDataScreen()),
+                );
+              },
+              child: Container(
+                width: 150,
+                height: 50,
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [
+                      const Color.fromARGB(169, 0, 136, 5),
+                      const Color.fromARGB(255, 0, 255, 8),
+                    ],
+                    begin: Alignment.centerLeft,
+                    end: Alignment.centerRight,
+                  ),
+                  borderRadius: BorderRadius.circular(15),
                 ),
-                borderRadius: BorderRadius.circular(15),
-              ),
-              child: Center(
-                child: Text(
-                  "+ Cash In",
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
+                child: Center(
+                  child: Text(
+                    "+ Cash In",
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
               ),
