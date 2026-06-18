@@ -133,7 +133,9 @@ class SingleWalletScreen extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => AddDataScreen()),
+                  MaterialPageRoute(
+                    builder: (context) => AddDataScreen(isCashOut: false),
+                  ),
                 );
               },
               child: Container(

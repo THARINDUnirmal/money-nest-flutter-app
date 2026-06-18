@@ -8,30 +8,40 @@ class CategeoryWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          width: 60,
-          height: 60,
-          margin: EdgeInsets.only(right: 15),
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: title == "ADD"
-                ? const Color.fromARGB(255, 40, 255, 7)
-                : AppColors.appBlueColor,
+    return SizedBox(
+      width: 55,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Container(
+            width: 55,
+            height: 55,
+            decoration: BoxDecoration(
+              border: Border.all(width: 2, color: Colors.blue),
+              shape: BoxShape.circle,
+              color: title == "ADD"
+                  ? const Color.fromARGB(255, 161, 253, 147)
+                  : Color(0xff4BB8FA),
+            ),
+            child: Icon(
+              icon,
+              color: title == "ADD" ? Colors.black : Colors.white,
+              size: 30,
+            ),
           ),
-          child: Icon(
-            icon,
-            color: title == "ADD" ? Colors.black : Colors.white,
-            size: 30,
+          SizedBox(height: 5),
+          SizedBox(
+            width: 55,
+            child: Text(
+              overflow: TextOverflow.ellipsis,
+              textAlign: TextAlign.center,
+              title,
+              style: TextStyle(fontSize: 15, fontWeight: FontWeight.normal),
+            ),
           ),
-        ),
-        SizedBox(height: 5),
-        Text(
-          title,
-          style: TextStyle(fontSize: 15, fontWeight: FontWeight.normal),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
