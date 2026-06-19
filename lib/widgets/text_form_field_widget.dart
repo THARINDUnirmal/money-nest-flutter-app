@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class TextFormFieldWidget extends StatelessWidget {
   final String titleText;
   final String labelText;
+  final TextInputType? keyboardType;
   final TextEditingController? controller;
   final String? Function(String?)? validator;
   const TextFormFieldWidget({
@@ -11,6 +12,7 @@ class TextFormFieldWidget extends StatelessWidget {
     this.controller,
     this.validator,
     required this.titleText,
+    this.keyboardType,
   });
 
   @override
@@ -27,7 +29,7 @@ class TextFormFieldWidget extends StatelessWidget {
         TextFormField(
           controller: controller,
           validator: validator,
-          keyboardType: TextInputType.number,
+          keyboardType: keyboardType,
           decoration: InputDecoration(
             filled: true,
             labelText: labelText,

@@ -40,6 +40,7 @@ class _AddDataScreenState extends State<AddDataScreen> {
                       controller: _titleController,
                       validator: (value) {},
                       labelText: "Enter Title",
+                      keyboardType: TextInputType.name,
                     ),
 
                     TextFormFieldWidget(
@@ -47,6 +48,7 @@ class _AddDataScreenState extends State<AddDataScreen> {
                       controller: _amountController,
                       validator: (value) {},
                       labelText: "Enter Amount",
+                      keyboardType: TextInputType.number,
                     ),
 
                     TextFormFieldWidget(
@@ -54,6 +56,7 @@ class _AddDataScreenState extends State<AddDataScreen> {
                       controller: _descriptionController,
                       validator: (value) {},
                       labelText: "Enter Description",
+                      keyboardType: TextInputType.name,
                     ),
                     SizedBox(height: 5),
                     Text(
@@ -64,15 +67,27 @@ class _AddDataScreenState extends State<AddDataScreen> {
                       ),
                     ),
                     SizedBox(height: 10),
-                    TextFormField(
-                      decoration: InputDecoration(
-                        suffixIcon: Icon(Icons.add_photo_alternate_outlined),
-                        filled: true,
-                        labelText: "Upload image (Optional)",
-                        fillColor: Color.fromARGB(255, 222, 222, 250),
-                        border: OutlineInputBorder(
+                    GestureDetector(
+                      onTap: () {
+                        //Todo : Activity
+                      },
+                      child: Container(
+                        width: double.infinity,
+                        padding: EdgeInsets.symmetric(horizontal: 20),
+                        height: 55,
+                        decoration: BoxDecoration(
+                          color: Color.fromARGB(255, 222, 222, 250),
                           borderRadius: BorderRadius.circular(10),
-                          borderSide: BorderSide.none,
+                        ),
+                        child: Row(
+                          children: [
+                            Text(
+                              "Upload image (Optional)",
+                              style: TextStyle(fontSize: 16),
+                            ),
+                            Spacer(),
+                            Icon(Icons.image_outlined),
+                          ],
                         ),
                       ),
                     ),
