@@ -38,7 +38,13 @@ class _AddDataScreenState extends State<AddDataScreen> {
                     TextFormFieldWidget(
                       titleText: "Title",
                       controller: _titleController,
-                      validator: (value) {},
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return "Please Enter Title";
+                        } else {
+                          return null;
+                        }
+                      },
                       labelText: "Enter Title",
                       keyboardType: TextInputType.name,
                     ),
@@ -46,7 +52,15 @@ class _AddDataScreenState extends State<AddDataScreen> {
                     TextFormFieldWidget(
                       titleText: "Amount",
                       controller: _amountController,
-                      validator: (value) {},
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return "Please Enter Amount";
+                        } else if (double.parse(value).toDouble() <= 0) {
+                          return "Amount Not Valid";
+                        } else {
+                          return null;
+                        }
+                      },
                       labelText: "Enter Amount",
                       keyboardType: TextInputType.number,
                     ),
@@ -54,7 +68,6 @@ class _AddDataScreenState extends State<AddDataScreen> {
                     TextFormFieldWidget(
                       titleText: "Description",
                       controller: _descriptionController,
-                      validator: (value) {},
                       labelText: "Enter Description",
                       keyboardType: TextInputType.name,
                     ),
@@ -69,7 +82,7 @@ class _AddDataScreenState extends State<AddDataScreen> {
                     SizedBox(height: 10),
                     GestureDetector(
                       onTap: () {
-                        //Todo : Activity
+                        categorieAddSheet();
                       },
                       child: Container(
                         width: double.infinity,
@@ -126,27 +139,34 @@ class _AddDataScreenState extends State<AddDataScreen> {
                     ),
 
                     SizedBox(height: 60),
-                    Container(
-                      width: double.infinity,
-                      height: 55,
-                      decoration: BoxDecoration(
-                        color: Color(0xff1d55f3),
-                        gradient: widget.isCashOut
-                            ? null
-                            : LinearGradient(
-                                colors: [
-                                  const Color.fromARGB(169, 0, 136, 5),
-                                  const Color.fromARGB(255, 0, 255, 8),
-                                ],
-                                begin: Alignment.centerLeft,
-                                end: Alignment.centerRight,
-                              ),
-                        borderRadius: BorderRadius.circular(15),
-                      ),
-                      child: Center(
-                        child: Text(
-                          widget.isCashOut ? "Add Cash Out" : "Add Cash In",
-                          style: TextStyle(fontSize: 18, color: Colors.white),
+                    GestureDetector(
+                      onTap: () {
+                        if (_formKey.currentState!.validate()) {
+                          //Todo
+                        }
+                      },
+                      child: Container(
+                        width: double.infinity,
+                        height: 55,
+                        decoration: BoxDecoration(
+                          color: Color(0xff1d55f3),
+                          gradient: widget.isCashOut
+                              ? null
+                              : LinearGradient(
+                                  colors: [
+                                    const Color.fromARGB(169, 0, 136, 5),
+                                    const Color.fromARGB(255, 0, 255, 8),
+                                  ],
+                                  begin: Alignment.centerLeft,
+                                  end: Alignment.centerRight,
+                                ),
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        child: Center(
+                          child: Text(
+                            widget.isCashOut ? "Add Cash Out" : "Add Cash In",
+                            style: TextStyle(fontSize: 18, color: Colors.white),
+                          ),
                         ),
                       ),
                     ),
@@ -157,6 +177,41 @@ class _AddDataScreenState extends State<AddDataScreen> {
           ),
         ),
       ),
+    );
+  }
+
+  void categorieAddSheet() {
+    showModalBottomSheet(
+      context: context,
+      builder: (context) {
+        return Container(
+          width: double.infinity,
+          height: 400,
+          padding: EdgeInsets.all(20),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20),
+              topRight: Radius.circular(20),
+            ),
+          ),
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  InkWell(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: Icon(Icons.close),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        );
+      },
     );
   }
 }
