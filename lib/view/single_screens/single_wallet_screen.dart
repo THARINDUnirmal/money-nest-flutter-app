@@ -86,42 +86,109 @@ class SingleWalletScreen extends StatelessWidget {
           SizedBox(width: 10),
         ],
       ),
-      body: Padding(
-        padding: EdgeInsets.all(AppConstatnts.appPadding),
-        child: Column(
-          children: [
-            Container(
-              padding: EdgeInsets.all(10),
-              width: double.infinity,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.all(AppConstatnts.appPadding),
+          child: Column(
+            children: [
+              Container(
+                padding: EdgeInsets.all(10),
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [Text("Net Balance"), Text("Rs 10000")],
+                    ),
+                    SizedBox(height: 10),
+                    Divider(),
+                    SizedBox(height: 10),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [Text("Total In (+)"), Text("Rs 10000")],
+                    ),
+                    SizedBox(height: 10),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [Text("Total Out (-)"), Text("Rs 10000")],
+                    ),
+                    SizedBox(height: 10),
+                    Divider(),
+                    SizedBox(height: 10),
+                    Center(child: Text("View Reports >")),
+
+                    SizedBox(height: 50),
+                    Container(
+                      padding: EdgeInsets.all(10),
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                            blurRadius: 6,
+                            color: Colors.grey,
+                            offset: Offset(3, 5),
+                          ),
+                        ],
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    children: [
+                                      Container(
+                                        width: 60,
+                                        height: 30,
+                                        decoration: BoxDecoration(
+                                          color: Colors.blue,
+                                          borderRadius: BorderRadius.circular(
+                                            5,
+                                          ),
+                                        ),
+                                      ),
+                                      SizedBox(width: 10),
+                                      Container(
+                                        width: 60,
+                                        height: 30,
+                                        decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(
+                                            5,
+                                          ),
+                                          color: Colors.red,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(height: 10),
+                                  Text("Title"),
+                                  SizedBox(height: 10),
+                                ],
+                              ),
+                              Spacer(),
+                              Text("Amount"),
+                            ],
+                          ),
+
+                          Divider(),
+                          SizedBox(height: 10),
+                          Text("Added Time :"),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ),
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [Text("Net Balance"), Text("Rs 10000")],
-                  ),
-                  SizedBox(height: 10),
-                  Divider(),
-                  SizedBox(height: 10),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [Text("Total In (+)"), Text("Rs 10000")],
-                  ),
-                  SizedBox(height: 10),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [Text("Total Out (-)"), Text("Rs 10000")],
-                  ),
-                  SizedBox(height: 10),
-                  Divider(),
-                  SizedBox(height: 10),
-                  Center(child: Text("View Reports >")),
-                ],
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: Padding(
