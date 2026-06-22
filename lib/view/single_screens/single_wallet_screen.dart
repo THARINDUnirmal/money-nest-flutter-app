@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lottie/lottie.dart';
 import 'package:new_ex_app/utils/app_constatnts.dart';
 import 'package:new_ex_app/view/single_screens/add_data_screen.dart';
+import 'package:new_ex_app/view/single_screens/onbording_screen.dart';
 
 class SingleWalletScreen extends StatelessWidget {
   const SingleWalletScreen({super.key});
@@ -156,14 +157,26 @@ class SingleWalletScreen extends StatelessWidget {
                                         ),
                                       ),
                                       SizedBox(width: 10),
-                                      Container(
-                                        width: 60,
-                                        height: 30,
-                                        decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(
-                                            5,
+                                      InkWell(
+                                        onTap: () {
+                                          //todo -test////////////////////////
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) =>
+                                                  OnbordingScreen(),
+                                            ),
+                                          );
+                                        },
+                                        child: Container(
+                                          width: 60,
+                                          height: 30,
+                                          decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.circular(
+                                              5,
+                                            ),
+                                            color: Colors.red,
                                           ),
-                                          color: Colors.red,
                                         ),
                                       ),
                                     ],

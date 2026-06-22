@@ -15,8 +15,11 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   int curruntIndex = 0;
   List<Widget> allPges = [HomeScreen(), QuectionScreen(), ProfileScreen()];
+
   @override
   Widget build(BuildContext context) {
+    double appWidth = MediaQuery.of(context).size.width;
+    double appHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       bottomNavigationBar: CurvedNavigationBar(
         onTap: (value) {
@@ -30,6 +33,7 @@ class _MainScreenState extends State<MainScreen> {
           SvgPicture.asset("assets/icons/user-round.svg"),
         ],
       ),
+
       body: allPges[curruntIndex],
     );
   }
