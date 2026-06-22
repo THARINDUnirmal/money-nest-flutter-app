@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class OnbordingScreen extends StatelessWidget {
   const OnbordingScreen({super.key});
@@ -34,43 +35,38 @@ class OnbordingScreen extends StatelessWidget {
           Positioned(
             top: -750,
             left: -490,
-            child: ClipRRect(
-              child: BackdropFilter(
-                filter: ImageFilter.blur(sigmaX: 40, sigmaY: 40),
-                child: Transform.rotate(
-                  angle: math.pi / 4,
-                  child: Container(
-                    width: 650,
-                    height: 650,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      // color: Colors.transparent,
-                      boxShadow: [
-                        BoxShadow(
-                          blurRadius: 30,
-                          offset: Offset(150, 55),
-                          color: const Color.fromARGB(
-                            229,
-                            135,
-                            0,
-                            239,
-                          ).withOpacity(0.9),
-                          // blurStyle: BlurStyle.normal,
-                        ),
-                        BoxShadow(
-                          blurRadius: 30,
-                          offset: Offset(250, 160),
-                          color: const Color.fromARGB(
-                            229,
-                            135,
-                            0,
-                            239,
-                          ).withOpacity(0.9),
-                          // blurStyle: BlurStyle.normal,
-                        ),
-                      ],
+            child: Transform.rotate(
+              angle: math.pi / 4,
+              child: Container(
+                width: 650,
+                height: 650,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  // color: Colors.transparent,
+                  boxShadow: [
+                    BoxShadow(
+                      blurRadius: 30,
+                      offset: Offset(150, 55),
+                      color: const Color.fromARGB(
+                        229,
+                        135,
+                        0,
+                        239,
+                      ).withOpacity(0.9),
+                      // blurStyle: BlurStyle.normal,
                     ),
-                  ),
+                    BoxShadow(
+                      blurRadius: 30,
+                      offset: Offset(250, 160),
+                      color: const Color.fromARGB(
+                        229,
+                        135,
+                        0,
+                        239,
+                      ).withOpacity(0.9),
+                      // blurStyle: BlurStyle.normal,
+                    ),
+                  ],
                 ),
               ),
             ),
@@ -138,11 +134,7 @@ class OnbordingScreen extends StatelessWidget {
             left: 10,
             child: Text(
               "Money\n     Nest",
-              style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-                fontSize: 25,
-              ),
+              style: GoogleFonts.lobster(fontSize: 30, color: Colors.white),
             ),
           ),
           Positioned(
